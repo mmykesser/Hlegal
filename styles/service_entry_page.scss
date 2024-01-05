@@ -1,0 +1,822 @@
+@import './mixins.scss';
+@import './variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import '../fonts/style_fonts_icon.css';
+
+* {
+    text-decoration: none;
+    list-style-type: none;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+
+.blue_btn {
+    @include flex(center, flex-start, 0, row);
+    @include Montserrat(14px, 700, 17px, $active_regular);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    &:hover,
+    &:hover path {
+        color: $accent;
+        stroke: $accent;
+    }
+
+
+}
+
+.header {
+    border-radius: 0px 0px 12px 12px;
+    background: $gradient_supersoft;
+
+    &_bg {
+        .header_menu {
+            background-color: $grey0pasity;
+
+            &_1 {
+
+                padding: 10px 15px;
+                @include flex(center, space-between, 0, none);
+                align-self: stretch;
+
+                &_lang {
+                    @include flex (center, center, 0, row);
+
+                    .lang {
+                        @include Montserrat(12px, 700, 15px, $white);
+                        text-align: center;
+                        letter-spacing: 1px;
+                        padding: 5px 7px;
+
+                        &:hover {
+                            border-radius: 8px;
+                            background-color: $accent;
+                        }
+                    }
+                }
+
+
+                &_contact {
+                    &_number {
+                        @include Montserrat(16px, 700, 20px, $white);
+                        text-decoration: none;
+                        text-align: right;
+
+                        &:hover {
+                            border-radius: 8px;
+                            background-color: $accent;
+                        }
+                    }
+                }
+            }
+        }
+
+        .header_menu_2 {
+            padding: 0 15px;
+            @include flex(center, space-between, 0, none);
+
+            &_name {
+                padding: 15px 0 10px 0;
+                @include flex(none, center, 4px, row);
+
+                &_1 {
+                    @include flex(center, center, 3.47px, column);
+                }
+
+                &_serv {
+                    @include Montserrat (20px, 400, 24px, $white);
+                }
+            }
+
+            .bg_dropdown {
+
+                .overlay {
+                    height: 0%;
+                    width: 100%;
+                    position: fixed;
+                    z-index: 1;
+                    top: 0;
+                    left: 0;
+                    overflow-y: hidden;
+                    transition: 0.5s;
+                    border-radius: 12px 12px 0px 0px;
+                    background: $white;
+                }
+
+                .overlay-content {
+                    position: relative;
+                    @include flex (center, center, 15px, column);
+                    top: 25%;
+                    text-align: center;
+                    margin-top: 20px;
+                    padding: 12px;
+                }
+
+                .overlay a {
+                    @include Montserrat(24px, 700, 29px, $active_regular);
+                    @include flex(flex-start, center, 0, none);
+                    align-self: stretch;
+                    background-color: $grey_bg;
+                    padding: 7px 0;
+                    transition: 0.3s;
+                    border-radius: 12px;
+                }
+
+                .overlay a:hover,
+                .overlay a:focus {
+                    color: $accent;
+                }
+
+                .overlay a:active {
+                    background-color: $grey_separator;
+                }
+
+                .overlay .closebtn {
+                    position: absolute;
+                    top: 12px;
+                    right: 12px;
+                    background-color: $white;
+                }
+
+                @media screen and (max-height: 450px) {
+                    .overlay {
+                        overflow-y: auto;
+                    }
+
+                    .overlay .closebtn {
+                        font-size: 40px;
+                        top: 15px;
+                        right: 35px;
+                    }
+                }
+            }
+
+        }
+
+        .header_menu_tablet,
+        .tablet {
+            @include flex(flex-start, center, 30px, column);
+            padding: 50px 60px 0 50px;
+
+            &_info,
+            .info {
+                @include flex(center, flex-start, 6px, row);
+
+                &_lang {
+                    @include flex (center, center, 0, row);
+
+                    .lang {
+                        @include Montserrat(12px, 700, 15px, $white);
+                        text-align: center;
+                        letter-spacing: 1px;
+                        padding: 5px 7px;
+
+                        &:hover {
+                            border-radius: 8px;
+                            background-color: $accent;
+                        }
+
+                    }
+                }
+
+                &_adres {
+                    @include Montserrat(16px, 400, 20px, $grey_text);
+                }
+
+                &_tel {
+                    @include Montserrat(16px, 700, 20px, $white);
+                }
+
+                .icon-Facebook-Header {
+                    font-size: 24px;
+                }
+            }
+
+            &_name {
+                @include flex(center, flex-start, 6.5px, column);
+            }
+
+            &_menu_ul {
+                @include flex(center, center, 15px, row);
+
+                .li_ul {
+                    @include flex(center, center, 3px, column);
+
+                    a {
+                        @include Montserrat (16px, 700, 20px, $white);
+                    }
+
+                    span {
+                        height: 2px;
+                        width: 100%;
+                        background-color: rgba(0, 0, 0, 0);
+                    }
+
+                    &:hover a {
+                        color: $accent;
+                    }
+
+                    &:hover span {
+                        background-color: $accent;
+                    }
+                }
+            }
+        }
+
+        .header_menu_pc,
+        .header_pc {
+            padding: 50px 60px 0 60px;
+            @include flex(center, space-between, 0, row);
+
+            &_name {
+                @include flex(center, flex-start, 6.5px, column);
+            }
+
+            &_info {
+                @include flex(center, center, 16px, column);
+
+                .info {
+                    @include flex(center, flex-start, 6px, row);
+
+                    &_lang {
+                        @include flex (center, center, 0, row);
+
+                        .lang {
+                            @include Montserrat(12px, 700, 15px, $white);
+                            text-align: center;
+                            letter-spacing: 1px;
+                            padding: 5px 7px;
+
+                            &:hover {
+                                border-radius: 8px;
+                                background-color: $accent;
+                            }
+                        }
+                    }
+
+                    &_adres {
+                        @include Montserrat(16px, 400, 20px, $grey_text);
+                    }
+
+                    &_tel {
+                        @include Montserrat(16px, 700, 20px, $white);
+                    }
+
+                    .icon-Facebook-Header {
+                        font-size: 24px;
+                    }
+
+                }
+
+                .header_pc_ul {
+                    @include flex(center, center, 15px, row);
+
+                    .li_pc {
+                        @include flex(center, center, 3px, column);
+
+                        a {
+                            @include Montserrat (16px, 700, 20px, $white);
+                        }
+
+                        span {
+                            height: 2px;
+                            width: 100%;
+                            background-color: rgba(0, 0, 0, 0);
+                        }
+
+                        &:hover a {
+                            color: $accent;
+                        }
+
+                        &:hover span {
+                            background-color: $accent;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+    .const {
+        padding: 60px;
+        @include flex(center, center, 60px, column);
+
+        .better_container {
+            @include flex(center, center, 60px, column);
+
+            .better {
+                @include flex(center, center, 30px, column);
+
+
+                &_info {
+                    @include flex(center, center, 30px, column);
+
+                    .better_svg {
+                        padding: 14px;
+                        background-color: $white;
+                        border-radius: 24px;
+                    }
+
+                    .txt {
+                        @include flex(center, center, 15px, column);
+
+
+                        &_ttl {
+                            @include Montserrat(38px, 700, 46px, none);
+                            background: $gradient_red_reversed;
+                            background-clip: text;
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                        }
+
+                        &_info {
+                            @include Montserrat(19px, 400, 30px, $white);
+                            text-align: center;
+                        }
+                    }
+
+                    &_btn {
+                        @include Montserrat(16px, 700, 20px, $white);
+                        padding: 18px 30px;
+                        border-radius: 12px;
+                        background: var(--Active-Regular, #24A3FF);
+                        box-shadow: 0px 0px 20px 0px rgba(36, 163, 255, 0.50);
+
+                    }
+                }
+
+                .better_area{
+
+                    .area_line{
+                        height: 4px;
+                        width: 100%;
+                        background-color:rgba(255, 255, 255, 0.50);
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+
+
+.header_line {
+    @include flex(center, center, 0, column);
+
+    &_1 {
+        height: 10px;
+        width: 90%;
+        border-radius: 0px 0px 12px 12px;
+        background-color: $grey_line;
+    }
+
+    &_2 {
+        height: 10px;
+        width: 80%;
+        border-radius: 0px 0px 12px 12px;
+        background-color: $grey_light_line;
+    }
+}
+
+
+.pub {
+    padding: 30px 60px 0 60px;
+    background-color: $grey_bg;
+    @include flex(flex-start, center, 30px, column);
+
+    &_title {
+        @include flex(flex-start, center, 10.5px, column);
+
+        &_h3 {
+            @include Montserrat(38px, 700, 46px, none);
+            background: $gradient_red_reversed;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+    &_list {
+        @include flex(flex-start, center, 30px, column);
+
+        .pub_item {
+            border-radius: 8px;
+            background-color: $white;
+            height: 100%;
+
+            &_img {
+                height: 200px;
+                overflow: hidden;
+
+                .item_photo {
+                    border-radius: 8px 8px 0 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover
+                }
+
+            }
+
+            .pub_info {
+                @include flex(flex-start, center, 15px, column);
+                padding: 30px;
+
+                &_tlt {
+                    @include Montserrat(16px, 700, 20px, $active_regular);
+                }
+
+                &_date {
+                    @include Montserrat(12px, 700, 15px, $grey_text);
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                }
+
+                &_line {
+                    height: 4px;
+                    align-self: stretch;
+                    background-color: $grey_separator;
+                }
+
+                &_txt {
+                    @include Montserrat(14px, 400, 22px, $balck);
+                }
+            }
+
+        }
+    }
+}
+
+.footer_mob,
+.mob {
+    @include flex(center, center, 30px, column);
+    padding: 30px;
+    background-color: $grey_bg;
+
+    &_line {
+        height: 2px;
+        align-self: stretch;
+        background-color: $grey_separator;
+    }
+
+    &_info {
+        @include flex(center, center, 20px, column);
+
+        .adres {
+            @include flex(center, center, 10px, column);
+
+            &_kiev {
+                @include Montserrat(16px, 400, 20px, $main_regular);
+            }
+
+            &_map {
+                @include Montserrat(12px, 700, 15px, $active_regular);
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+        }
+
+        .logo {
+            @include flex(center, center, 10px, column);
+
+            .icon-Facebook-Footer {
+                font-size: 38px;
+            }
+
+            &_tel {
+                @include Montserrat(16px, 700, 20px, $main_alt);
+            }
+
+            &_mail {
+                @include Montserrat(16px, 700, 20px, $active_regular);
+            }
+        }
+    }
+
+    &_llc {
+        @include Montserrat(16px, 400, 20px, $grey_text);
+        text-align: center;
+    }
+}
+
+
+.footer_pc,
+.pc {
+    @include flex(none, center, 30px, column);
+    padding: 30px 60px;
+    background-color: $grey_bg;
+
+    &_info {
+        @include flex(none, center, 21px, column);
+
+        .pc_adres {
+            @include flex(center, space-between, 0, row);
+
+            .adres_city {
+                .adres_kiev {
+                    @include Montserrat(16px, 400, 20px, $main_regular);
+                }
+
+                .adres_map {
+                    @include Montserrat(12px, 700, 15px, $active_regular);
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                }
+            }
+
+            .pc_llc {
+                @include Montserrat(16px, 400, 20px, $grey_text);
+            }
+        }
+
+        .pc_logo {
+            @include flex(center, flex-start, 10px, row);
+
+            .icon-Facebook-Footer {
+                font-size: 38px;
+            }
+
+            &_tel {
+                @include Montserrat(16px, 700, 20px, $main_alt);
+            }
+
+            &_mail {
+                @include Montserrat(16px, 700, 20px, $active_regular);
+            }
+        }
+    }
+
+}
+
+
+/* --media-- */
+
+@media screen and (max-width: 764px) {
+    .header {
+        overflow: hidden;
+        max-width: 100%;
+
+        &_bg {
+
+            .header_menu_tablet,
+            .tablet,
+            .header_menu_pc,
+            .header_pc {
+
+                display: none;
+            }
+        }
+
+        .const {
+            padding: 30px 30px 60px 30px;
+            gap: 30px;
+
+            .better {
+
+                gap: 30px;
+
+                &_srv {
+                    &_ttl {
+                        font-size: 30px;
+                        line-height: 37px;
+                    }
+                }
+            }
+        }
+    }
+
+    .pub {
+        overflow: hidden;
+        max-width: 100%;
+        padding: 30px 30px 0 30px;
+
+        &_title {
+
+
+            &_h3 {
+                font-size: 30px;
+                line-height: 37px;
+            }
+        }
+    }
+
+    .footer_mob,
+    .mob {
+        overflow: hidden;
+        max-width: 100%;
+    }
+
+    .pc {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1020px) and (min-width: 765px) {
+
+    .header {
+        &_bg {
+            background-size: 115%;
+            background-position: 55% 60%;
+
+            .header_menu,
+            .header_menu_2,
+            .header_menu_pc,
+            .header_pc {
+                display: none;
+            }
+
+            .main_text {
+                padding: 269px 0 417px 0;
+            }
+        }
+
+
+
+        .const {
+            .better {
+                &_li {
+                    @include flex(flex-start, space-between, 60px, row);
+                    flex-wrap: wrap;
+
+            
+                }
+
+            }
+        }
+    }
+
+
+
+    .pub {
+        &_list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            justify-content: center;
+
+            .item_3 {
+                grid-area: 2/1/2/3;
+            }
+        }
+    }
+
+    .mob {
+        display: none;
+    }
+}
+
+
+@media screen and (max-width: 1436px) and (min-width: 1021px) {
+    .header {
+        &_bg {
+            background-size: 65%;
+            background-position: 50% 80%;
+
+            .header_menu,
+            .header_menu_2,
+            .header_menu_tablet,
+            .tablet {
+                display: none;
+            }
+
+            .main_text {
+                padding: 245px 0 289px 0;
+            }
+        }
+
+        .const {
+
+            .better {
+                &_li {
+                    @include flex(flex-start, flex-start, 60px, row);
+                    flex-wrap: wrap;
+
+                    
+                }
+
+            }
+        }
+    }
+
+    .pub {
+        &_list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            justify-content: center;
+            grid-gap: 30px;
+        }
+    }
+
+    .mob {
+        display: none;
+    }
+}
+
+@media screen and (max-width:1916px) and (min-width: 1437px) {
+    .header {
+        &_bg {
+            background-size: 51%;
+            background-position: 53% 60%;
+
+            .header_menu,
+            .header_menu_2,
+            .header_menu_tablet,
+            .tablet {
+                display: none;
+            }
+
+            .main_text {
+                padding: 261px 0 305px 0;
+            }
+        }
+
+        .const {
+
+            .better {
+                &_li {
+                    @include flex(flex-start, flex-start, 60px, row);
+                    flex-wrap: wrap;
+
+                    
+                }
+
+            }
+        }
+    }
+
+    .pub {
+        &_list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            justify-content: center;
+            grid-gap: 30px;
+        }
+    }
+
+    .mob {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1917px) {
+    .header {
+        &_bg {
+            background-size: 45%;
+            background-position: 50% 55%;
+
+            .header_menu,
+            .header_menu_2,
+            .header_menu_tablet,
+            .tablet {
+                display: none;
+            }
+
+            .header_menu_pc,
+            .header_pc {
+                padding: 50px 160px 0 160px;
+            }
+
+
+            .main_text {
+                padding: 361px 0 405px 0;
+            }
+        }
+
+        .const {
+            padding: 0 160px 60px 160px;
+
+            .better {
+                &_li {
+                    @include flex(flex-start, flex-start, 60px, row);
+                    flex-wrap: wrap;
+
+                    
+                }
+
+            }
+        }
+    }
+
+    .pub {
+        padding: 30px 160px 0 160px;
+
+        &_list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            justify-content: center;
+            grid-gap: 30px;
+        }
+    }
+
+    .footer_mob,
+    .mob {
+        display: none;
+    }
+
+    .footer_pc,
+    .pc {
+        padding: 30px 160px;
+    }
+}

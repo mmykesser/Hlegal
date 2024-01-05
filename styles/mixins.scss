@@ -1,0 +1,25 @@
+@mixin Montserrat ($fs, $fw, $lh, $cl) {
+    font-family: $Montserrat;
+    font-style: normal;
+    font-size: $fs;
+    font-weight: $fw;
+    line-height: $lh;
+    color: $cl;
+}
+
+@mixin flex($ai, $jc, $gp, $fd){
+    display: flex;
+    align-items: $ai;
+    justify-content: $jc;
+    gap: $gp;
+    flex-direction: $fd;
+}
+
+
+@mixin companyStyles($padY, $padX, $back) {
+    padding: $padY $padX;
+    background: $back;
+    &_img {
+        @include flex(center, center, 0, none);
+    }
+}
